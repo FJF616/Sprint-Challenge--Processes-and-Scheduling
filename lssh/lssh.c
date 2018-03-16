@@ -97,14 +97,16 @@ int main(void)
             // Execute a `continue` statement to short-circuit the rest of the main loop.
             continue;
         }
-
+        //fork to start a new process
         pid_t pid = fork();
         
         if(pid == 0) 
         {
+            //exec command in the child process
             execvp(args[0], &args[0]);
         } else
             {
+                //parent waits here
                 wait(NULL);
             }
        
@@ -123,7 +125,3 @@ int main(void)
     return 0;
 }
 
-void commandShell (char **args) 
-{
-    pid_t pid;
-}
