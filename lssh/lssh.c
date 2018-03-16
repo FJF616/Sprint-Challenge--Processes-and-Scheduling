@@ -88,7 +88,26 @@ int main(void)
         if (strcmp(args[0], "exit") == 0) {
             break;
         }
+        // Check to make sure they've entered 2 total arguments
+        
+        if (strcmp(args[0], "cd") == 0 && args[1]) 
+        {
+            // Run the system call `chdir()` on the second argument to change directories
+            chdir(args[1]);
+            // Execute a `continue` statement to short-circuit the rest of the main loop.
+            continue;
+        }
 
+        pid_t pid = fork();
+        
+        if(pid == 0) 
+        {
+            execvp(args[0], &args[0]);
+        } else
+            {
+                wait(NULL);
+            }
+       
         #if DEBUG
 
         // Some debugging output
@@ -102,4 +121,9 @@ int main(void)
     }
 
     return 0;
+}
+
+void commandShell (char **args) 
+{
+    pid_t pid;
 }

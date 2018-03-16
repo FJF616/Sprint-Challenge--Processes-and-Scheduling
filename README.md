@@ -12,7 +12,7 @@ Add your answers inline, below, with your pull request.
 **Blocked: a process is blocked when it is triggered by an external event such as user input, mismatched or missing hardware, errors etc.**  
 **Terminated: A process is terminated when it is either finished with execution, or has been killed.**  
 2. What is a Zombie Process? How does it get created? How does it get destroyed?
-**This happens when a process hasn't terminated correctly and still remains on the process table.  This usually occurs when a child process goes into ready state until the parent process signals its exit status.**  
+**This happens when a process hasn't terminated correctly and still remains on the process table.  This usually occurs when a child process goes into ready state until the parent process signals its exit status, however it can get stuck like this if the parent process exits prematurely.**  
 3. Describe the job of the Scheduler in the OS in general.
 **The Scheduler is sort of like a switchboard operator.  It designates hardware assignments with thier computational counterparts such as processes, threads and flows.**  
 4. Describe the benefits of the MLFQ over a plain Round-Robin scheduler.
